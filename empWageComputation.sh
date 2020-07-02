@@ -1,14 +1,20 @@
 #!/bin/bash
 
 echo "Welcome to Employee Wage Computation Program"
-wagePerHr=20
-isPresent=1
-dailyWage=0
-randomCheck=$((RANDOM%2))
-if [ $isPresent -eq $randomCheck ]
+
+isPartTime=1
+isFullTime=2
+EmpRatePerHr=20
+
+randomCheck=$((RANDOM%3))
+if [ $isFullTime -eq $randomCheck ]
 then
         empHrs=8
+elif [ $isPartTime -eq $randomCheck ]
+then
+        empHrs=4
+else
+        empHrs=0
 fi
 
-dailyWage=$(( wagePerHr*empHrs ))
-echo $dailyWage
+ salary=$(( $EmpRatePerHr * $empHrs ))
