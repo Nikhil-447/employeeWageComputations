@@ -8,8 +8,8 @@ EmpRatePerHr=20;
 day=0;
 dailyalary=0;
 monthlySalary=0;
-
-for (( day=0; day <=20 ; day++ ))
+hrsTotal=0
+while [ $hrsTotal -le 100 ]
 do
 empCheck=$((RANDOM%3))
 case $empCheck in
@@ -27,7 +27,9 @@ case $empCheck in
         ;;
 
 esac
-
+        hrsTotal=$(( hrsTotal + empHrs ))
         dailyalary=$(( $EmpRatePerHr * $empHrs ))
         monthlySalary=$(( $monthlySalary + $dailyalary ))
 done
+
+echo $hrsTotal
